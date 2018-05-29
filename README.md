@@ -1,5 +1,5 @@
 # sibengkel
-Sistem Informasi Bengkel + Akuntansi 
+Sistem Informasi Bengkel + Akuntansi ( Aplikasi belum 100% Sempurna setidaknya sudah jalan cukup baik ) 
 
 Project Based as : 
 - Codeigniter 
