@@ -1,0 +1,21 @@
+SELECT 
+    nama_perkiraan,
+    @d := debet as debet, 
+	@k := kredit AS Kredit, 
+    @s:= @s + @d - @k AS saldo 
+FROM tbl_jurnal_umum 
+    LEFT JOIN (SELECT @s := 0) AS `setVar` ON 1=1 where nama_perkiraan='kas'
+
+$this->db->select('tanggal, @k := kredit AS Kredit, 
+    	@d := debet as debet, 
+    	@s:= @s + @k - @d AS saldo ');
+		$this->db->from('tbl_jurnal_umum');
+		$this->db->join('(SELECT @s := 0)AS "setVar"','1=1','left');
+		$this->db->where('nama_perkiraan',$where);
+		$query = $this->db->get();
+		return $query;
+
+
+//GET barang keluar 
+
+SELECT tanggal,nama_brg,sum(jml_brg) as total FROM `tbl_detail_penjualan` INNER JOIN  tbl_penjualan ON tbl_penjualan.nonota = tbl_detail_penjualan.nonota WHERE date_format(tanggal,'%m')=date_format(now(),'%m') GROUP by nama_brg
