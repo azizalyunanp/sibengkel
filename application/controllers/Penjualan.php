@@ -138,8 +138,6 @@ class Penjualan extends CI_Controller {
 		'nonota' 	=> $this->getnonota(),
 		'kode_pel'	=> $this->input->post('nama_pelanggan',TRUE),
 		// 'diskon' 	=> $this->input->post('diskon',TRUE),
-		'biaya_jasa' => $this->input->post('biaya_jasa',TRUE),
-		'keterangan' => $this->input->post('keterangan',TRUE),
 		'total'	 	=> str_replace('.','',$this->input->post('total',TRUE)),
 		'waktu'	 	=> date('Y-m-d H:i:s'),
 		'tanggal'	=> date('Y-m-d'),

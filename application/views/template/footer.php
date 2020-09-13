@@ -126,7 +126,7 @@
 <script type"text/javascript">
 	$(document).ready(function() {
 		$('#dynatable').dynatable();
-		//$('#dtBox').DateTimePicker();
+		$('#dtBox').DateTimePicker();
 		//mask money rupiah 
 		$('#biaya').maskMoney({
 			thousands:'.', decimal:',', precision:0
@@ -328,16 +328,6 @@
 	    return rupiah.split('',rupiah.length-1).reverse().join('');
 	
 	}
-
-  function addbiayajasa() {
-    var biaya_jasa   = $('#biaya_jasa').val().replace(".", "");
-    var grandtotal_flag   = $('#grandtotal_flag').val().replace(".", "");
-    var grandtotal = parseInt(grandtotal_flag)+parseInt(biaya_jasa);
-    $('#total').val(convertToRupiah(grandtotal));
-    $('#totbayar').val(convertToRupiah(grandtotal));
-    $('#bayar').val(null);
-    $('#kembalian').val(null);
-  }
 
 	function showkembali() {
 		var harga 	= $('#totbayar').val().replace(".", "");

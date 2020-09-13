@@ -111,19 +111,9 @@ list-style: none;
 				</tbody>
 			</table>
 			<div align="right" style="margin-right: 3cm;">
-					Harga Barang : 
+					Total Bayar <br>
 					Rp <?php echo number_format($this->cart->total(),0,".",".");
 					 ?>
-				</div>
-			<div align="right" style="margin-right: 3cm;">
-					Biaya Jasa : 
-					Rp <?php echo number_format($n->biaya_jasa,0,".",".");
-					 ?>
-				</div>
-			<div align="right" style="margin-right: 3cm;">
-					<h3>Total Bayar : 
-					Rp <?php echo number_format($n->total,0,".",".");
-					 ?></h3>
 				</div>
 	<div class="col-sm-6">
 		Melayani : <br>
