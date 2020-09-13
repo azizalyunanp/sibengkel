@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 21, 2017 at 07:59 AM
--- Server version: 5.7.18
--- PHP Version: 7.1.5
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 12 Sep 2020 pada 15.50
+-- Versi server: 10.1.32-MariaDB
+-- Versi PHP: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ci_sessions`
+-- Struktur dari tabel `ci_sessions`
 --
 
 CREATE TABLE `ci_sessions` (
@@ -36,7 +38,7 @@ CREATE TABLE `ci_sessions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Struktur dari tabel `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -48,7 +50,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `tbl_admin`
+-- Dumping data untuk tabel `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`id`, `username`, `nama_lengkap`, `password`, `level`) VALUES
@@ -59,7 +61,7 @@ INSERT INTO `tbl_admin` (`id`, `username`, `nama_lengkap`, `password`, `level`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_barang`
+-- Struktur dari tabel `tbl_barang`
 --
 
 CREATE TABLE `tbl_barang` (
@@ -75,7 +77,7 @@ CREATE TABLE `tbl_barang` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_barang`
+-- Dumping data untuk tabel `tbl_barang`
 --
 
 INSERT INTO `tbl_barang` (`id`, `nama`, `kategori`, `sub_1`, `sub_2`, `sub_3`, `harga_beli`, `harga_jual`, `stok`) VALUES
@@ -83,11 +85,11 @@ INSERT INTO `tbl_barang` (`id`, `nama`, `kategori`, `sub_1`, `sub_2`, `sub_3`, `
 (2, 'GM7B-4B KIT', 'aki', '2W', 'GS', '', 50000, 100000, 48),
 (3, 'GT6A (GM5Z-3B MF)', 'aki', '2W', 'GS', '', 50000, 100000, 50),
 (4, 'GTZ-4V MF', 'aki', '2W', 'GS', '', 70000, 100000, 50),
-(5, 'GTZ-5S MF', 'aki', '2W', 'GS', '', 70000, 100000, 50),
+(5, 'GTZ-5S MF', 'aki', '2W', 'GS', '', 70000, 100000, 49),
 (6, 'GTZ-7S MF', 'aki', '2W', 'GS', '', 70000, 100000, 50),
 (7, 'GTZ-6V MF\n', 'aki', '2W', 'GS', '', 0, 100000, 50),
 (8, '12N10-3B', 'aki', '2W', 'GS', '', 0, 100000, 50),
-(9, '12N10-3BM', 'aki', '2W', 'GS', '', 0, 100000, 50),
+(9, '12N10-3BM', 'aki', '2W', 'GS', '', 0, 100000, 49),
 (10, 'GM3-3A', 'aki', '2W', 'GS', '', 0, 100000, 50),
 (11, 'GM3-3B', 'aki', '2W', 'GS', '', 0, 100000, 50),
 (12, 'GM4-3B', 'aki', '2W', 'GS', '', 0, 100000, 50),
@@ -139,7 +141,7 @@ INSERT INTO `tbl_barang` (`id`, `nama`, `kategori`, `sub_1`, `sub_2`, `sub_3`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_pembelian`
+-- Struktur dari tabel `tbl_detail_pembelian`
 --
 
 CREATE TABLE `tbl_detail_pembelian` (
@@ -152,7 +154,7 @@ CREATE TABLE `tbl_detail_pembelian` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_detail_pembelian`
+-- Dumping data untuk tabel `tbl_detail_pembelian`
 --
 
 INSERT INTO `tbl_detail_pembelian` (`no`, `nonota`, `id_brg`, `nama_brg`, `jml_brg`, `harga_brg`) VALUES
@@ -177,7 +179,7 @@ INSERT INTO `tbl_detail_pembelian` (`no`, `nonota`, `id_brg`, `nama_brg`, `jml_b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_penjualan`
+-- Struktur dari tabel `tbl_detail_penjualan`
 --
 
 CREATE TABLE `tbl_detail_penjualan` (
@@ -190,7 +192,7 @@ CREATE TABLE `tbl_detail_penjualan` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_detail_penjualan`
+-- Dumping data untuk tabel `tbl_detail_penjualan`
 --
 
 INSERT INTO `tbl_detail_penjualan` (`no`, `nonota`, `id_brg`, `nama_brg`, `jml_brg`, `harga_brg`) VALUES
@@ -229,12 +231,14 @@ INSERT INTO `tbl_detail_penjualan` (`no`, `nonota`, `id_brg`, `nama_brg`, `jml_b
 (33, '1032', '54', 'YTX9-BS MF', '1', '100000'),
 (34, '1033', '1', 'GM5Z-3B KIT', '1', '100000'),
 (35, '1034', '1', 'GM5Z-3B KIT', '1', '100000'),
-(36, '1034', '2', 'GM7B-4B KIT', '2', '100000');
+(36, '1034', '2', 'GM7B-4B KIT', '2', '100000'),
+(37, '1035', '5', 'GTZ-5S MF', '1', '100000'),
+(38, '1035', '9', '12N10-3BM', '1', '100000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jurnal_umum`
+-- Struktur dari tabel `tbl_jurnal_umum`
 --
 
 CREATE TABLE `tbl_jurnal_umum` (
@@ -247,19 +251,21 @@ CREATE TABLE `tbl_jurnal_umum` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_jurnal_umum`
+-- Dumping data untuk tabel `tbl_jurnal_umum`
 --
 
 INSERT INTO `tbl_jurnal_umum` (`no`, `tanggal`, `nama_perkiraan`, `debet`, `kredit`, `keterangan`) VALUES
 (1, '2017-11-04', 'Kas', 300000, 0, 'Penjualan'),
 (2, '2017-11-04', 'Penjualan', 0, 300000, ''),
 (3, '2017-11-04', 'Sewa dibayar di muka', 1000000, 0, ''),
-(4, '2017-11-04', 'Kas', 0, 1000000, '');
+(4, '2017-11-04', 'Kas', 0, 1000000, ''),
+(5, '2020-09-12', 'Kas', 217000, 0, 'Penjualan'),
+(6, '2020-09-12', 'Penjualan', 0, 217000, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kategori`
+-- Struktur dari tabel `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -268,7 +274,7 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_kategori`
+-- Dumping data untuk tabel `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `kategori`) VALUES
@@ -279,7 +285,7 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pelanggan`
+-- Struktur dari tabel `tbl_pelanggan`
 --
 
 CREATE TABLE `tbl_pelanggan` (
@@ -290,7 +296,7 @@ CREATE TABLE `tbl_pelanggan` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `tbl_pelanggan`
+-- Dumping data untuk tabel `tbl_pelanggan`
 --
 
 INSERT INTO `tbl_pelanggan` (`no`, `nama`, `alamat`, `no_hp`) VALUES
@@ -299,7 +305,7 @@ INSERT INTO `tbl_pelanggan` (`no`, `nama`, `alamat`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pembelian`
+-- Struktur dari tabel `tbl_pembelian`
 --
 
 CREATE TABLE `tbl_pembelian` (
@@ -312,7 +318,7 @@ CREATE TABLE `tbl_pembelian` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_pembelian`
+-- Dumping data untuk tabel `tbl_pembelian`
 --
 
 INSERT INTO `tbl_pembelian` (`no`, `no_beli`, `total`, `tanggal`, `waktu`, `keterangan`) VALUES
@@ -337,7 +343,7 @@ INSERT INTO `tbl_pembelian` (`no`, `no_beli`, `total`, `tanggal`, `waktu`, `kete
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_penjualan`
+-- Struktur dari tabel `tbl_penjualan`
 --
 
 CREATE TABLE `tbl_penjualan` (
@@ -345,6 +351,8 @@ CREATE TABLE `tbl_penjualan` (
   `nonota` varchar(100) NOT NULL,
   `kode_pel` varchar(16) NOT NULL,
   `diskon` int(11) NOT NULL,
+  `biaya_jasa` int(11) NOT NULL DEFAULT '0',
+  `keterangan` varchar(255) NOT NULL DEFAULT '-',
   `total` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -352,50 +360,51 @@ CREATE TABLE `tbl_penjualan` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_penjualan`
+-- Dumping data untuk tabel `tbl_penjualan`
 --
 
-INSERT INTO `tbl_penjualan` (`no`, `nonota`, `kode_pel`, `diskon`, `total`, `tanggal`, `waktu`, `garansi`) VALUES
-(1, '1000', '1', 0, 200000, '2017-03-30', '2017-03-29 20:29:05', '-'),
-(2, '1001', '1', 0, 100000, '2017-03-30', '2017-03-29 20:30:20', '-'),
-(3, '1002', '1', 0, 100000, '2017-03-30', '2017-03-29 20:39:00', '-'),
-(4, '1003', '1', 0, 100000, '2017-03-30', '2017-03-29 20:41:15', '-'),
-(5, '1004', '1', 0, 100000, '2017-03-30', '2017-03-29 20:46:14', '-'),
-(6, '1005', '1', 0, 100000, '2017-03-30', '2017-03-29 20:47:04', '6 bulan'),
-(7, '1006', '1', 0, 100000, '2017-03-30', '2017-03-29 20:55:02', '6 bulan'),
-(8, '1007', '1', 0, 100000, '2017-03-30', '2017-03-29 20:56:05', '-'),
-(9, '1008', '1', 0, 100000, '2017-03-30', '2017-03-29 20:57:55', '6 bulan'),
-(10, '1009', '1', 0, 100000, '2017-03-30', '2017-03-29 21:02:21', '-'),
-(11, '1010', '1', 0, 100000, '2017-03-30', '2017-03-29 21:08:03', '-'),
-(12, '1011', '1', 0, 100000, '2017-03-30', '2017-03-29 21:09:23', '6 bulan'),
-(13, '1012', '1', 0, 100000, '2017-03-30', '2017-03-29 21:12:21', '-'),
-(14, '1013', '1', 0, 100000, '2017-03-30', '2017-03-29 21:49:22', '6 bulan'),
-(15, '1014', '1', 0, 100000, '2017-03-30', '2017-03-29 21:50:57', '6 bulan'),
-(16, '1015', '1', 0, 100000, '2017-03-30', '2017-03-29 21:51:51', '6 bulan'),
-(17, '1016', '1', 0, 100000, '2017-03-30', '2017-03-29 21:52:36', '6 bulan'),
-(18, '1017', '1', 0, 100000, '2017-04-04', '2017-04-03 21:57:40', '6 bulan'),
-(19, '1018', '1', 0, 100000, '2017-04-04', '2017-04-03 21:59:01', '-'),
-(20, '1019', '1', 0, 100000, '2017-04-05', '2017-04-04 19:35:55', '6 bulan'),
-(21, '1020', '1', 0, 100000, '2017-04-05', '2017-04-04 19:36:56', '5 bulan'),
-(22, '1021', '1', 0, 200000, '2017-04-05', '2017-04-04 19:45:07', '6 bulan'),
-(23, '1022', '1', 0, 100000, '2017-04-05', '2017-04-04 19:45:59', '6 bulan'),
-(24, '1023', '1', 0, 100000, '2017-04-05', '2017-04-04 19:49:51', '6 bulan'),
-(25, '1024', '1', 0, 200000, '2017-04-05', '2017-04-04 19:51:42', '2'),
-(26, '1025', '1', 0, 100000, '2017-04-05', '2017-04-04 19:54:41', '-'),
-(27, '1026', '1', 0, 100000, '2017-04-05', '2017-04-04 19:56:43', '6 bulan'),
-(28, '1027', '1', 0, 100000, '2017-04-05', '2017-04-04 21:49:10', '6 bulan'),
-(29, '1028', '1', 0, 100000, '2017-04-05', '2017-04-04 21:51:26', '6 bulan'),
-(30, '1029', '1', 0, 100000, '2017-04-05', '2017-04-04 21:56:09', '6 bulan'),
-(31, '1030', '1', 0, 100000, '2017-04-05', '2017-04-04 22:00:52', '-'),
-(32, '1031', '1', 0, 100000, '2017-04-05', '2017-04-04 22:01:26', '-'),
-(33, '1032', '1', 0, 100000, '2017-04-05', '2017-04-04 22:02:15', '6 bulan'),
-(34, '1033', '1', 0, 100000, '2017-04-10', '2017-04-10 03:04:29', '6 bulan'),
-(35, '1034', '1', 0, 300000, '2017-11-04', '2017-11-03 19:50:54', '');
+INSERT INTO `tbl_penjualan` (`no`, `nonota`, `kode_pel`, `diskon`, `biaya_jasa`, `keterangan`, `total`, `tanggal`, `waktu`, `garansi`) VALUES
+(1, '1000', '1', 0, 0, '-', 200000, '2017-03-30', '2017-03-29 20:29:05', '-'),
+(2, '1001', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:30:20', '-'),
+(3, '1002', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:39:00', '-'),
+(4, '1003', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:41:15', '-'),
+(5, '1004', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:46:14', '-'),
+(6, '1005', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:47:04', '6 bulan'),
+(7, '1006', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:55:02', '6 bulan'),
+(8, '1007', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:56:05', '-'),
+(9, '1008', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 20:57:55', '6 bulan'),
+(10, '1009', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:02:21', '-'),
+(11, '1010', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:08:03', '-'),
+(12, '1011', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:09:23', '6 bulan'),
+(13, '1012', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:12:21', '-'),
+(14, '1013', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:49:22', '6 bulan'),
+(15, '1014', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:50:57', '6 bulan'),
+(16, '1015', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:51:51', '6 bulan'),
+(17, '1016', '1', 0, 0, '-', 100000, '2017-03-30', '2017-03-29 21:52:36', '6 bulan'),
+(18, '1017', '1', 0, 0, '-', 100000, '2017-04-04', '2017-04-03 21:57:40', '6 bulan'),
+(19, '1018', '1', 0, 0, '-', 100000, '2017-04-04', '2017-04-03 21:59:01', '-'),
+(20, '1019', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 19:35:55', '6 bulan'),
+(21, '1020', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 19:36:56', '5 bulan'),
+(22, '1021', '1', 0, 0, '-', 200000, '2017-04-05', '2017-04-04 19:45:07', '6 bulan'),
+(23, '1022', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 19:45:59', '6 bulan'),
+(24, '1023', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 19:49:51', '6 bulan'),
+(25, '1024', '1', 0, 0, '-', 200000, '2017-04-05', '2017-04-04 19:51:42', '2'),
+(26, '1025', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 19:54:41', '-'),
+(27, '1026', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 19:56:43', '6 bulan'),
+(28, '1027', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 21:49:10', '6 bulan'),
+(29, '1028', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 21:51:26', '6 bulan'),
+(30, '1029', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 21:56:09', '6 bulan'),
+(31, '1030', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 22:00:52', '-'),
+(32, '1031', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 22:01:26', '-'),
+(33, '1032', '1', 0, 0, '-', 100000, '2017-04-05', '2017-04-04 22:02:15', '6 bulan'),
+(34, '1033', '1', 0, 0, '-', 100000, '2017-04-10', '2017-04-10 03:04:29', '6 bulan'),
+(35, '1034', '1', 0, 0, '-', 300000, '2017-11-04', '2017-11-03 19:50:54', ''),
+(36, '1035', '1', 0, 17000, '-', 217000, '2020-09-12', '2020-09-12 08:13:50', '6 bulan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ref`
+-- Struktur dari tabel `tbl_ref`
 --
 
 CREATE TABLE `tbl_ref` (
@@ -406,7 +415,7 @@ CREATE TABLE `tbl_ref` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_ref`
+-- Dumping data untuk tabel `tbl_ref`
 --
 
 INSERT INTO `tbl_ref` (`id`, `no_ref`, `nama_perkiraan`, `posisi`) VALUES
@@ -440,7 +449,7 @@ INSERT INTO `tbl_ref` (`id`, `no_ref`, `nama_perkiraan`, `posisi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_so`
+-- Struktur dari tabel `tbl_so`
 --
 
 CREATE TABLE `tbl_so` (
@@ -453,7 +462,7 @@ CREATE TABLE `tbl_so` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_so`
+-- Dumping data untuk tabel `tbl_so`
 --
 
 INSERT INTO `tbl_so` (`id`, `id_brg`, `nama_brg`, `tanggal`, `beli`, `jual`) VALUES
@@ -736,12 +745,14 @@ INSERT INTO `tbl_so` (`id`, `id_brg`, `nama_brg`, `tanggal`, `beli`, `jual`) VAL
 (277, 1, 'GM5Z-3B KIT', '2017-04-10', 0, 1),
 (278, 54, 'YTX9-BS MF', '2017-04-10', 1, 0),
 (279, 1, 'GM5Z-3B KIT', '2017-11-04', 0, 1),
-(280, 2, 'GM7B-4B KIT', '2017-11-04', 0, 2);
+(280, 2, 'GM7B-4B KIT', '2017-11-04', 0, 2),
+(281, 5, 'GTZ-5S MF', '2020-09-12', 0, 1),
+(282, 9, '12N10-3BM', '2020-09-12', 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sub_kategori`
+-- Struktur dari tabel `tbl_sub_kategori`
 --
 
 CREATE TABLE `tbl_sub_kategori` (
@@ -751,7 +762,7 @@ CREATE TABLE `tbl_sub_kategori` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_sub_kategori`
+-- Dumping data untuk tabel `tbl_sub_kategori`
 --
 
 INSERT INTO `tbl_sub_kategori` (`id`, `kategori`, `sub_kategori`) VALUES
@@ -807,7 +818,7 @@ INSERT INTO `tbl_sub_kategori` (`id`, `kategori`, `sub_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_temp_beli`
+-- Struktur dari tabel `tbl_temp_beli`
 --
 
 CREATE TABLE `tbl_temp_beli` (
@@ -821,7 +832,7 @@ CREATE TABLE `tbl_temp_beli` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_temp_beli`
+-- Dumping data untuk tabel `tbl_temp_beli`
 --
 
 INSERT INTO `tbl_temp_beli` (`no`, `sess_id`, `id`, `name`, `qty`, `price`, `subtotal`) VALUES
@@ -830,7 +841,7 @@ INSERT INTO `tbl_temp_beli` (`no`, `sess_id`, `id`, `name`, `qty`, `price`, `sub
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_temp_tt`
+-- Struktur dari tabel `tbl_temp_tt`
 --
 
 CREATE TABLE `tbl_temp_tt` (
@@ -844,7 +855,7 @@ CREATE TABLE `tbl_temp_tt` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_temp_tt`
+-- Dumping data untuk tabel `tbl_temp_tt`
 --
 
 INSERT INTO `tbl_temp_tt` (`no`, `id`, `sess_id`, `name`, `qty`, `price`, `subtotal`) VALUES
@@ -856,169 +867,184 @@ INSERT INTO `tbl_temp_tt` (`no`, `id`, `sess_id`, `name`, `qty`, `price`, `subto
 --
 
 --
--- Indexes for table `ci_sessions`
+-- Indeks untuk tabel `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
   ADD KEY `ci_sessions_timestamp` (`timestamp`);
 
 --
--- Indexes for table `tbl_admin`
+-- Indeks untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_barang`
+-- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_detail_pembelian`
+-- Indeks untuk tabel `tbl_detail_pembelian`
 --
 ALTER TABLE `tbl_detail_pembelian`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_detail_penjualan`
+-- Indeks untuk tabel `tbl_detail_penjualan`
 --
 ALTER TABLE `tbl_detail_penjualan`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_jurnal_umum`
+-- Indeks untuk tabel `tbl_jurnal_umum`
 --
 ALTER TABLE `tbl_jurnal_umum`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_kategori`
+-- Indeks untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `tbl_pelanggan`
+-- Indeks untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_pembelian`
+-- Indeks untuk tabel `tbl_pembelian`
 --
 ALTER TABLE `tbl_pembelian`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_penjualan`
+-- Indeks untuk tabel `tbl_penjualan`
 --
 ALTER TABLE `tbl_penjualan`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_ref`
+-- Indeks untuk tabel `tbl_ref`
 --
 ALTER TABLE `tbl_ref`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_so`
+-- Indeks untuk tabel `tbl_so`
 --
 ALTER TABLE `tbl_so`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_sub_kategori`
+-- Indeks untuk tabel `tbl_sub_kategori`
 --
 ALTER TABLE `tbl_sub_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_temp_beli`
+-- Indeks untuk tabel `tbl_temp_beli`
 --
 ALTER TABLE `tbl_temp_beli`
   ADD PRIMARY KEY (`no`);
 
 --
--- Indexes for table `tbl_temp_tt`
+-- Indeks untuk tabel `tbl_temp_tt`
 --
 ALTER TABLE `tbl_temp_tt`
   ADD PRIMARY KEY (`no`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
--- AUTO_INCREMENT for table `tbl_barang`
+-- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
 --
--- AUTO_INCREMENT for table `tbl_detail_pembelian`
+-- AUTO_INCREMENT untuk tabel `tbl_detail_pembelian`
 --
 ALTER TABLE `tbl_detail_pembelian`
   MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
--- AUTO_INCREMENT for table `tbl_detail_penjualan`
+-- AUTO_INCREMENT untuk tabel `tbl_detail_penjualan`
 --
 ALTER TABLE `tbl_detail_penjualan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 --
--- AUTO_INCREMENT for table `tbl_jurnal_umum`
+-- AUTO_INCREMENT untuk tabel `tbl_jurnal_umum`
 --
 ALTER TABLE `tbl_jurnal_umum`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT for table `tbl_kategori`
+-- AUTO_INCREMENT untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT for table `tbl_pelanggan`
+-- AUTO_INCREMENT untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
   MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- AUTO_INCREMENT for table `tbl_pembelian`
+-- AUTO_INCREMENT untuk tabel `tbl_pembelian`
 --
 ALTER TABLE `tbl_pembelian`
   MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
--- AUTO_INCREMENT for table `tbl_penjualan`
+-- AUTO_INCREMENT untuk tabel `tbl_penjualan`
 --
 ALTER TABLE `tbl_penjualan`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
 --
--- AUTO_INCREMENT for table `tbl_ref`
+-- AUTO_INCREMENT untuk tabel `tbl_ref`
 --
 ALTER TABLE `tbl_ref`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
--- AUTO_INCREMENT for table `tbl_so`
+-- AUTO_INCREMENT untuk tabel `tbl_so`
 --
 ALTER TABLE `tbl_so`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=281;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
+
 --
--- AUTO_INCREMENT for table `tbl_sub_kategori`
+-- AUTO_INCREMENT untuk tabel `tbl_sub_kategori`
 --
 ALTER TABLE `tbl_sub_kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
 --
--- AUTO_INCREMENT for table `tbl_temp_beli`
+-- AUTO_INCREMENT untuk tabel `tbl_temp_beli`
 --
 ALTER TABLE `tbl_temp_beli`
   MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT for table `tbl_temp_tt`
+-- AUTO_INCREMENT untuk tabel `tbl_temp_tt`
 --
 ALTER TABLE `tbl_temp_tt`
   MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
