@@ -133,6 +133,24 @@ Phone:
 		<div class="hr hr8 hr-double hr-dotted"></div>
 
 		<div class="row">
+			<div class="col-sm-5 pull-right text-right">
+					 Harga Barang : 
+					 <span class="red">Rp 
+					<?php
+						echo number_format($total->total-$n->biaya_jasa,0,".",".");
+					 ?></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 pull-right text-right">
+					 Biaya Jasa : 
+					 <span class="red">Rp 
+					<?php
+						echo number_format($n->biaya_jasa,0,".",".");
+					 ?></span>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-sm-5 pull-right">
 				<h4 class="pull-right">
 					 Total Bayar : 

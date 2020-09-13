@@ -25,7 +25,7 @@ Rp <input id="total" class="texttrans" readonly="readonly" value="<?php echo num
 	<div class="form-group">
 	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Nama Pelanggan </label>
 	<div class="col-sm-9">
-		<select class="select_nm_pel col-sm-6" name="nama_pelanggan" id="nama_pel">
+		<select class="select_nm_pel col-sm-6" name="nama_pelanggan" id="nama_pel" required>
 		<option></option>
 		<?php foreach ($pelanggan as $p) { ?>
 			<option value="<?php echo $p->no; ?>" data-alamat="<?php echo $p->alamat; ?>" data-hp="<?php echo $p->no_hp; ?>">
@@ -66,8 +66,22 @@ Rp <input id="total" class="texttrans" readonly="readonly" value="<?php echo num
 
 	<!--TOTALBAYAR-->
 	<input type="hidden" id="totbayar" name="total" value="<?php echo number_format($this->cart->total(),0,".",".");?>">
+	<input type="hidden" id="grandtotal_flag" name="grandtotal_flag" value="<?php echo number_format($this->cart->total(),0,".",".");?>">
 	<!--TOTAL BAYAR-->
 
+	<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Biaya Jasa </label>
+	<div class="col-sm-6">
+		<input type="number" id="biaya_jasa" required value="0" min="0" class="form-control" onkeyup="addbiayajasa()" name="biaya_jasa">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Keterangan </label>
+	<div class="col-sm-6">
+		<textarea type="text" id="keterangan" name="keterangan" class="form-control" required="true" required>-</textarea> 
+	</div>
+	</div>
 
 	<div class="form-group">
 	<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Bayar </label>
@@ -179,6 +193,11 @@ Rp <input id="total" class="texttrans" readonly="readonly" value="<?php echo num
    	$('#bayar').maskMoney({
 			thousands:'.', decimal:',', precision:0
 	});
+
+	//MASK MONEY BAYAR
+   	/*$('#biaya_jasa').maskMoney({
+			thousands:'.', decimal:',', precision:0
+	});*/
 	
 	//ADD CUSTOMERS WITH AJAX 
 	$('#savecust').click(function(){
