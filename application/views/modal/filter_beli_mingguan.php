@@ -7,14 +7,14 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Set Tanggal Pertama</label>
 				<div class="col-sm-9">
-				<input type="text" class="col-xs-10 col-sm-8" name="tanggal_1" data-field="date" data-format="dd-mm-yyyy">
+				<input type="date" class="col-xs-10 col-sm-8" name="tanggal_1" data-field="date" data-format="dd-mm-yyyy">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Set Tanggal Kedua</label>
 				<div class="col-sm-9">
-				<input type="text" class="col-xs-10 col-sm-8" name="tanggal_2" data-field="date" data-format="dd-mm-yyyy">
+				<input type="date" class="col-xs-10 col-sm-8" name="tanggal_2" data-field="date" data-format="dd-mm-yyyy">
 				</div>
 			</div>
 
@@ -30,5 +30,5 @@
 
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/DateTimePicker.js"></script>
 <script type="text/javascript">
-	$('#dtBox').DateTimePicker();
+	//$('#dtBox').DateTimePicker();
 </script>
