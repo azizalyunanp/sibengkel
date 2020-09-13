@@ -196,7 +196,8 @@ class Laporan extends CI_Controller {
 		'sidebar'	=> "Laporan",
 		'sidebar2'	=> "Lap.Penjualan",
 		'menu'		=> "active open", 
-		 );	
+		 );
+		$this->view_filter($data);
 	}
 
 	public function filter_beli_bulanan() {
